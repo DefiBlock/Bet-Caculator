@@ -1,6 +1,6 @@
 <html>  
 <head>  
-<script src="js/jquery.min.js"></script>
+ <script src="js/jquery.min.js"></script>
 </head>  
 <body>  
 <p>Welcome to JavaScript</p>  
@@ -71,19 +71,19 @@ var TotalGoal6=document.getElementById('InputMoney6ID').value;
 var TotalGoal7=document.getElementById('InputMoney7ID').value;
 var TotalGoal8=document.getElementById('InputMoney8ID').value;
 
-var TotalInputMoney=parseFloat(document.getElementById('TotalInputMoneyID').value);
-var MinInputMoney=parseFloat(document.getElementById('MinInputMoneyID').value);
+var TotalInputMoney=parseInt(document.getElementById('TotalInputMoneyID').value);
+var MinInputMoney=parseInt(document.getElementById('MinInputMoneyID').value);
 
 
-var InputMoney0=parseFloat(TotalInputMoney / TotalGoal0) ;
-var InputMoney1= parseFloat(TotalInputMoney / TotalGoal1);
-var InputMoney2= parseFloat(TotalInputMoney / TotalGoal2);
-var InputMoney3= parseFloat(TotalInputMoney / TotalGoal3);
-var InputMoney4= parseFloat(TotalInputMoney / TotalGoal4);
-var InputMoney5= parseFloat(TotalInputMoney / TotalGoal5);
-var InputMoney6= parseFloat(TotalInputMoney / TotalGoal6);
-var InputMoney7= parseFloat(TotalInputMoney / TotalGoal7);
-var InputMoney8= parseFloat(TotalInputMoney / TotalGoal8);
+var InputMoney0=parseInt(TotalInputMoney / TotalGoal0) ;
+var InputMoney1= parseInt(TotalInputMoney / TotalGoal1);
+var InputMoney2= parseInt(TotalInputMoney / TotalGoal2);
+var InputMoney3= parseInt(TotalInputMoney / TotalGoal3);
+var InputMoney4= parseInt(TotalInputMoney / TotalGoal4);
+var InputMoney5= parseInt(TotalInputMoney / TotalGoal5);
+var InputMoney6= parseInt(TotalInputMoney / TotalGoal6);
+var InputMoney7= parseInt(TotalInputMoney / TotalGoal7);
+var InputMoney8= parseInt(TotalInputMoney / TotalGoal8);
 
 var WinRate=0;
 if (InputMoney0 <= MinInputMoney) {
@@ -141,16 +141,15 @@ var FinalWinRate=WinRate  / 8;
 console.log("FinalInputMoney:",FinalInputMoney);
 
 $("#ResultID").html( 
-"胜胜:" + InputMoney0 + "<br>" + 
-
-"胜平:"+InputMoney1+ "  " +"<br>"+
-"胜负:"+InputMoney2+ "  "+"<br>"+
-"平胜:"+InputMoney3+ "  "+"<br>"+
-"平平:"+InputMoney4+ "  "+"<br>"+
-"平负:"+InputMoney5+ "  "+"<br>"+
-"负胜:"+InputMoney6+ "  "+"<br>"+
-"负平:"+InputMoney7+ "  "+"<br>"+
-"负负:"+InputMoney8+ "  "+"<br>"+
+"胜胜:"+InputMoney0+ "  " + "  Win:" + InputMoney0*TotalGoal0 + "<br>" +
+"胜平:"+InputMoney1+ "  " + "  Win:" + InputMoney1*TotalGoal1 +"<br>"+
+"胜负:"+InputMoney2+ "  "+ "  Win:" + InputMoney2*TotalGoal2 +"<br>"+
+"平胜:"+InputMoney3+ "  "+ "  Win:" + InputMoney3*TotalGoal3 +"<br>"+
+"平平:"+InputMoney4+ "  "+ "  Win:" + InputMoney4*TotalGoal4 +"<br>"+
+"平负:"+InputMoney5+ "  "+ "  Win:" + InputMoney5*TotalGoal5 +"<br>"+
+"负胜:"+InputMoney6+ "  "+ "  Win:" + InputMoney6*TotalGoal6 +"<br>"+
+"负平:"+InputMoney7+ "  "+ "  Win:" + InputMoney7*TotalGoal7 +"<br>"+
+"负负:"+InputMoney8+ "  "+ "  Win:" + InputMoney8*TotalGoal8 +"<br>"+
 "FinalInputMoney:"+FinalInputMoney+ "  "+"<br>"+
 "FinalWinRate:"+FinalWinRate+ "  "+"<br>"
 
