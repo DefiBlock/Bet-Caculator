@@ -1,0 +1,381 @@
+<html>  
+<head>  
+ <!--<script src="js/jquery.min.js"></script>-->
+</head>  
+<body>  
+<p>Welcome to JavaScript</p>  
+<form>  
+
+
+<label>Input Money 0</label>
+<input type="text"   class="form-control" id="InputMoney0ID"    placeholder=""> <br> 
+<label>Input Money 1</label>
+<input type="text"   class="form-control" id="InputMoney1ID"    placeholder=""> <br> 
+
+<label>Input Money 2</label>
+<input type="text"   class="form-control" id="InputMoney2ID"    placeholder=""> <br> 
+
+<label>Input Money 3</label>
+<input type="text"   class="form-control" id="InputMoney3ID"    placeholder=""> <br> 
+
+<label>Input Money 4</label>
+<input type="text"   class="form-control" id="InputMoney4ID"    placeholder=""> <br> 
+
+<label>Input Money 5</label>
+<input type="text"   class="form-control" id="InputMoney5ID"    placeholder=""> <br> 
+
+<label>Input Money 6</label>
+<input type="text"   class="form-control" id="InputMoney6ID"    placeholder=""> <br> 
+
+<label>Input Money 7</label>
+<input type="text"   class="form-control" id="InputMoney7ID"    placeholder=""> <br> 
+
+<label>Input Money 8</label>
+<input type="text"   class="form-control" id="InputMoney8ID"    placeholder=""> <br> 
+ <br>  <br> 
+
+<label>Total Money</label>
+<input type="text"   class="form-control" id="TotalInputMoneyID"    placeholder=""> <br> 
+
+<label>Min Input money</label>
+<input type="text"   class="form-control" id="MinInputMoneyID"    placeholder=""> <br> 
+
+
+
+<input type="button" value="click" onclick="AlwaysWin1()"/>  
+</form>  
+
+
+<label id="ResultID"   ></label>
+
+
+</body>  
+
+
+<script type="text/javascript">  
+
+
+function AlwaysWin1(){
+
+//Min Input money 是获胜关键，其他保本或小亏，高倍数才盈利。
+//console.log(document.getElementById('InputMoney8ID').value)	;
+
+var TotalGoal0=document.getElementById('InputMoney0ID').value;
+var TotalGoal1=document.getElementById('InputMoney1ID').value;
+var TotalGoal2=document.getElementById('InputMoney2ID').value;
+
+var TotalGoal3=document.getElementById('InputMoney3ID').value;
+var TotalGoal4=document.getElementById('InputMoney4ID').value;
+var TotalGoal5=document.getElementById('InputMoney5ID').value;
+var TotalGoal6=document.getElementById('InputMoney6ID').value;
+var TotalGoal7=document.getElementById('InputMoney7ID').value;
+var TotalGoal8=document.getElementById('InputMoney8ID').value;
+
+var TotalInputMoney=parseFloat(document.getElementById('TotalInputMoneyID').value);
+var MinInputMoney=parseFloat(document.getElementById('MinInputMoneyID').value);
+
+
+var InputMoney0=parseFloat(TotalInputMoney / TotalGoal0) ;
+var InputMoney1= parseFloat(TotalInputMoney / TotalGoal1);
+var InputMoney2= parseFloat(TotalInputMoney / TotalGoal2);
+var InputMoney3= parseFloat(TotalInputMoney / TotalGoal3);
+var InputMoney4= parseFloat(TotalInputMoney / TotalGoal4);
+var InputMoney5= parseFloat(TotalInputMoney / TotalGoal5);
+var InputMoney6= parseFloat(TotalInputMoney / TotalGoal6);
+var InputMoney7= parseFloat(TotalInputMoney / TotalGoal7);
+var InputMoney8= parseFloat(TotalInputMoney / TotalGoal8);
+
+var WinRate=0;
+if (InputMoney0 <= MinInputMoney) {
+InputMoney0=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney1 <= MinInputMoney) {
+InputMoney1=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney2 <= MinInputMoney) {
+InputMoney2=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney3 <= MinInputMoney) {
+InputMoney3=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney4 <= MinInputMoney) {
+InputMoney4=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney5 <= MinInputMoney) {
+InputMoney5=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney6 <= MinInputMoney) {
+InputMoney6=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney7 <= MinInputMoney) {
+InputMoney7=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney8 <= MinInputMoney) {
+InputMoney8=MinInputMoney;
+WinRate=WinRate +1;
+}
+
+
+console.log("0:",InputMoney0 );
+console.log("1:",InputMoney1 );
+console.log("2:",InputMoney2);
+console.log("3:",InputMoney3);
+console.log("4:",InputMoney4);
+console.log("5:",InputMoney5);
+console.log("6:",InputMoney6);
+console.log("7:",InputMoney7);
+console.log("8:",InputMoney8);
+
+
+var FinalInputMoney=  InputMoney0 +InputMoney1+InputMoney2+InputMoney3+InputMoney4+InputMoney5+InputMoney6+InputMoney7+InputMoney8;
+
+var FinalWinRate=WinRate  / 8;
+console.log("FinalInputMoney:",FinalInputMoney);
+
+$("#ResultID").html( 
+"胜胜:" + InputMoney0 + "<br>" + 
+
+"胜平:"+InputMoney1+ "  " +"<br>"+
+"胜负:"+InputMoney2+ "  "+"<br>"+
+"平胜:"+InputMoney3+ "  "+"<br>"+
+"平平:"+InputMoney4+ "  "+"<br>"+
+"平负:"+InputMoney5+ "  "+"<br>"+
+"负胜:"+InputMoney6+ "  "+"<br>"+
+"负平:"+InputMoney7+ "  "+"<br>"+
+"负负:"+InputMoney8+ "  "+"<br>"+
+"FinalInputMoney:"+FinalInputMoney+ "  "+"<br>"+
+"FinalWinRate:"+FinalWinRate+ "  "+"<br>"
+
+ ); 
+
+
+
+}
+
+
+
+
+function AlwaysWin(){
+var TotalGoal0=4.7;
+var TotalGoal1=3.45;
+var TotalGoal2=1.57;
+
+var  TotalInputMoney=100  ;
+var  TotalInputOdds=20 / 2;
+
+//TotalGoal0 * x1 + TotalGoal1* x2 + TotalGoal1 * x3=  TotalInputMoney;
+
+var i0Win=0;
+
+
+for (let i0 = 1; i0 < TotalInputOdds; i0++) {
+	  i0Win=i0 * TotalGoal0 * 2;
+
+	var i0input=i0 * 2;
+   //console.log("InputMoney:" + InputMoney);  
+for (let i1 = 1; i1 < TotalInputOdds; i1++) {
+	var i1Win=i1 * TotalGoal1* 2;
+	var i1input=i1 * 2;
+
+
+
+for (let i2 = 1; i2 < TotalInputOdds; i2++) {
+	var i2Win=i2 * TotalGoal2* 2;
+	var i2input=i2 * 2;
+
+console.log("***************" );  
+console.log("i0Win:",i0Win );  
+console.log("i1Win:",i1Win );  
+console.log("i2Win:",i2Win ); 
+console.log("***************" );  
+
+}}}
+
+
+}
+
+
+
+
+
+function run(){  
+var TotalGoal0=1.77;
+var TotalGoal1=3.12;
+var TotalGoal2=3.95;
+
+var TotalGoal3=5.35;
+var TotalGoal4=4.2;
+var TotalGoal5=6.25;
+var TotalGoal6=23;
+var TotalGoal7=15;
+var TotalGoal8=5;
+
+
+var WinRates= [1.3, 4.05, 6.6];
+//var TotalGoal3=3.55;
+//var TotalGoal4=5.5;
+//var TotalGoal5=10.5;
+//var TotalGoal6=18;
+//var TotalGoal7=25;
+
+var LoopCount=15;
+var i0Win=0;
+
+var BestRate=0;
+
+var BestInput0=0;
+var BestInput1=0;
+var BestInput2=0;
+
+var BestInput3=0;
+var BestInput4=0;
+var BestInput5=0;
+var BestInput6=0;
+var BestInput7=0;
+var BestInput8=0;
+/*
+for (const WinRate in WinRates) {   
+        const element = WinRates[WinRate];
+        console.log("element:",element);    
+ 
+}
+*/
+
+for (let i0 = 1; i0 < LoopCount; i0++) {
+	  i0Win=i0 * TotalGoal0 * 2;
+
+	var i0input=i0 * 2;
+   //console.log("InputMoney:" + InputMoney);  
+for (let i1 = 1; i1 < LoopCount; i1++) {
+	var i1Win=i1 * TotalGoal1* 2;
+	var i1input=i1 * 2;
+
+
+
+for (let i2 = 1; i2 < LoopCount; i2++) {
+	var i2Win=i2 * TotalGoal2* 2;
+	var i2input=i2 * 2;
+/*
+for (let i3 = 1; i3 < LoopCount; i3++) {
+	var i3Win=i3 * TotalGoal3* 2;
+	var i3input=i3 * 2;
+
+for (let i4 = 1; i4 < LoopCount; i4++) {
+	var i4Win=i4 * TotalGoal4* 2;
+	var i4input=i4 * 2;
+
+for (let i5 = 1; i5 < LoopCount; i5++) {
+	var i5Win=i5 * TotalGoal5* 2;
+	var i5input=i5 * 2;
+
+for (let i6 = 1; i6 < LoopCount; i6++) {
+	var i6Win=i6 * TotalGoal6* 2;
+	var i6input=i6 * 2;
+
+for (let i7 = 1; i7 < LoopCount; i7++) {
+	var i7Win=i7 * TotalGoal7* 2;
+	var i7input=i7 * 2;			
+
+for (let i8 = 1; i8 < LoopCount; i8++) {
+	var i8Win=i8 * TotalGoal8* 2;
+	var i8input=i8 * 2;
+
+*/
+console.log("**********");
+
+//var TotalInput=i0input+i1input+i2input+i3input+i4input+i5input+i6input+i7input+i8input;
+//var TotalOutput=i0Win+i1Win+i2Win+i3Win+i4Win+i5Win+i6Win+i7Win+i8Win;
+
+var TotalInput=i0input+i1input+i2input;
+var TotalOutput=i0Win+i1Win+i2Win;
+
+var Rate=TotalInput / TotalOutput ;
+
+
+
+if ( Rate > BestRate ) {
+	BestRate=Rate;
+	BestInput0=i0input;
+	BestInput1=i1input;
+	BestInput2=i2input;
+
+/*
+BestInput3=i3input;
+BestInput4=i4input;
+BestInput5=i5input;
+BestInput6=i6input;
+BestInput7=i7input;
+BestInput8=i8input;
+*/
+
+
+
+
+
+}
+//if (i0Win > TotalInput   && i1Win > TotalInput   && i2Win > TotalInput     ) {
+//console.log("Total input:" + TotalInput);  
+//console.log("Total Ouput:" + TotalOutput);  
+//console.log("Rate:" + Rate); 
+
+
+//console.log("i0Win:" + i0Win);  
+//console.log("i1Win:" + i1Win);  
+//console.log("i2Win:" + i2Win); 
+
+//console.log("i0input:" + i0input);  
+//console.log("i1input:" + i1input);  
+//console.log("i2input:" + i2input); 
+
+console.log("BestRate..:",BestRate );  
+
+console.log("**********" );  
+
+//}
+
+
+
+
+}
+}
+}
+//}
+//}
+//}
+//}
+//}
+//}
+
+
+
+
+
+
+
+console.log("BestRate:",BestRate );  
+
+
+
+console.log("BestInput0:",BestInput0 );  
+console.log("BestInput1:",BestInput1 );  
+console.log("BestInput2:",BestInput2 ); 
+console.log("BestInput3:",BestInput3 );  
+console.log("BestInput4:",BestInput4 );  
+console.log("BestInput5:",BestInput5 );  
+console.log("BestInput6:",BestInput6 );  
+console.log("BestInput7:",BestInput7 );  
+console.log("BestInput8:",BestInput8 );  
+
+}  
+
+
+
+</script> 
