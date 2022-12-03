@@ -37,12 +37,14 @@
 <label>Total Money</label>
 <input type="text"   class="form-control" id="TotalInputMoneyID"    placeholder=""> <br> 
 
-<label>Min Input money</label>
+<label>Min Input money-High Odds</label>
 <input type="text"   class="form-control" id="MinInputMoneyID"    placeholder=""> <br> 
 
 
 
-<input type="button" value="click" onclick="AlwaysWin1()"/>  
+<input type="button" value="半全场" onclick="AlwaysWin1()"/>  
+<input type="button" value="胜平负" onclick="AlwaysWin2()"/>  
+
 </form>  
 
 
@@ -74,16 +76,19 @@ var TotalGoal8=document.getElementById('InputMoney8ID').value;
 var TotalInputMoney=parseInt(document.getElementById('TotalInputMoneyID').value);
 var MinInputMoney=parseInt(document.getElementById('MinInputMoneyID').value);
 
+// + 2 的原因是 遇到低倍数赔的更少，遇到高倍数赚的不变。用处不大。
+var ReduceLostOdds=0;
 
-var InputMoney0=parseInt(TotalInputMoney / TotalGoal0) ;
-var InputMoney1= parseInt(TotalInputMoney / TotalGoal1);
-var InputMoney2= parseInt(TotalInputMoney / TotalGoal2);
-var InputMoney3= parseInt(TotalInputMoney / TotalGoal3);
-var InputMoney4= parseInt(TotalInputMoney / TotalGoal4);
-var InputMoney5= parseInt(TotalInputMoney / TotalGoal5);
-var InputMoney6= parseInt(TotalInputMoney / TotalGoal6);
-var InputMoney7= parseInt(TotalInputMoney / TotalGoal7);
-var InputMoney8= parseInt(TotalInputMoney / TotalGoal8);
+
+var InputMoney0=parseInt(TotalInputMoney / TotalGoal0) +ReduceLostOdds ;
+var InputMoney1= parseInt(TotalInputMoney / TotalGoal1) +ReduceLostOdds;
+var InputMoney2= parseInt(TotalInputMoney / TotalGoal2) +ReduceLostOdds ;
+var InputMoney3= parseInt(TotalInputMoney / TotalGoal3)+ReduceLostOdds ;
+var InputMoney4= parseInt(TotalInputMoney / TotalGoal4)+ReduceLostOdds ;
+var InputMoney5= parseInt(TotalInputMoney / TotalGoal5)+ReduceLostOdds ;
+var InputMoney6= parseInt(TotalInputMoney / TotalGoal6)+ReduceLostOdds ;
+var InputMoney7= parseInt(TotalInputMoney / TotalGoal7)+ReduceLostOdds ;
+var InputMoney8= parseInt(TotalInputMoney / TotalGoal8)+ReduceLostOdds ;
 
 var WinRate=0;
 if (InputMoney0 <= MinInputMoney) {
@@ -137,19 +142,55 @@ console.log("8:",InputMoney8);
 
 var FinalInputMoney=  InputMoney0 +InputMoney1+InputMoney2+InputMoney3+InputMoney4+InputMoney5+InputMoney6+InputMoney7+InputMoney8;
 
+//8 种赔率
 var FinalWinRate=WinRate  / 8;
 console.log("FinalInputMoney:",FinalInputMoney);
 
+
+
+
+var S0="胜胜:"+InputMoney0+ "  " + "  Win:" +  InputMoney0*TotalGoal0 + "<br>" ;
+var S1="胜平:"+InputMoney1+ "  " + "  Win:" +  InputMoney1*TotalGoal1 + "<br>" ;
+var S2="胜负:"+InputMoney2+ "  " + "  Win:" +  InputMoney2*TotalGoal2 + "<br>" ;
+var S3="平胜:"+InputMoney3+ "  " + "  Win:" +  InputMoney3*TotalGoal3 + "<br>" ;
+var S4="平平:"+InputMoney4+ "  " + "  Win:" +  InputMoney4*TotalGoal4 + "<br>" ;
+var S5="平负:"+InputMoney5+ "  " + "  Win:" +  InputMoney5*TotalGoal5 + "<br>" ;
+var S6="负胜:"+InputMoney6+ "  " + "  Win:" +  InputMoney6*TotalGoal6 + "<br>" ;
+var S7="负平:"+InputMoney7+ "  " + "  Win:" +  InputMoney7*TotalGoal7 + "<br>" ;
+var S8="负负:"+InputMoney8+ "  " + "  Win:" +  InputMoney8*TotalGoal8 + "<br>" ;
+
+
+if (InputMoney0*TotalGoal0 > FinalInputMoney ) {
+S0="胜胜:"+InputMoney0+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney0*TotalGoal0 + '</font>' + "<br>" ;
+}
+if (InputMoney1*TotalGoal1 > FinalInputMoney ) {
+S1="胜平:"+InputMoney1+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney1*TotalGoal1 + '</font>' + "<br>" ;
+}
+if (InputMoney2*TotalGoal2 > FinalInputMoney ) {
+S2="胜负:"+InputMoney2+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney2*TotalGoal2 + '</font>' + "<br>" ;
+}
+if (InputMoney3*TotalGoal3 > FinalInputMoney ) {
+S3="平胜:"+InputMoney3+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney3*TotalGoal3 + '</font>' + "<br>" ;
+}
+if (InputMoney4*TotalGoal4 > FinalInputMoney ) {
+S4="平平:"+InputMoney4+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney4*TotalGoal4 + '</font>' + "<br>" ;
+}
+if (InputMoney5*TotalGoal5 > FinalInputMoney ) {
+S5="平负:"+InputMoney5+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney5*TotalGoal5 + '</font>' + "<br>" ;
+}
+if (InputMoney6*TotalGoal6 > FinalInputMoney ) {
+S6="负胜:"+InputMoney6+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney6*TotalGoal6 + '</font>' + "<br>" ;
+}
+if (InputMoney7*TotalGoal7 > FinalInputMoney ) {
+S7="负平:"+InputMoney7+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney7*TotalGoal7 + '</font>' + "<br>" ;
+}
+if (InputMoney8*TotalGoal8 > FinalInputMoney ) {
+S8="负负:"+InputMoney8+ "  " + "  Win:" + '<font style="color:red">'+  InputMoney8*TotalGoal8 + '</font>' + "<br>" ;
+}
+
+
 $("#ResultID").html( 
-"胜胜:"+InputMoney0+ "  " + "  Win:" + InputMoney0*TotalGoal0 + "<br>" +
-"胜平:"+InputMoney1+ "  " + "  Win:" + InputMoney1*TotalGoal1 +"<br>"+
-"胜负:"+InputMoney2+ "  "+ "  Win:" + InputMoney2*TotalGoal2 +"<br>"+
-"平胜:"+InputMoney3+ "  "+ "  Win:" + InputMoney3*TotalGoal3 +"<br>"+
-"平平:"+InputMoney4+ "  "+ "  Win:" + InputMoney4*TotalGoal4 +"<br>"+
-"平负:"+InputMoney5+ "  "+ "  Win:" + InputMoney5*TotalGoal5 +"<br>"+
-"负胜:"+InputMoney6+ "  "+ "  Win:" + InputMoney6*TotalGoal6 +"<br>"+
-"负平:"+InputMoney7+ "  "+ "  Win:" + InputMoney7*TotalGoal7 +"<br>"+
-"负负:"+InputMoney8+ "  "+ "  Win:" + InputMoney8*TotalGoal8 +"<br>"+
+S0+S1+S2+S3+S4+S5+S6+S7+S8+
 "FinalInputMoney:"+FinalInputMoney+ "  "+"<br>"+
 "FinalWinRate:"+FinalWinRate+ "  "+"<br>"
 
@@ -161,46 +202,70 @@ $("#ResultID").html(
 
 
 
+function AlwaysWin2(){
 
-function AlwaysWin(){
-var TotalGoal0=4.7;
-var TotalGoal1=3.45;
-var TotalGoal2=1.57;
+//Min Input money 是获胜关键，其他保本或小亏，高倍数才盈利。
+//console.log(document.getElementById('InputMoney8ID').value)	;
 
-var  TotalInputMoney=100  ;
-var  TotalInputOdds=20 / 2;
+var TotalGoal0=document.getElementById('InputMoney0ID').value;
+var TotalGoal1=document.getElementById('InputMoney1ID').value;
+var TotalGoal2=document.getElementById('InputMoney2ID').value;
+ 
 
-//TotalGoal0 * x1 + TotalGoal1* x2 + TotalGoal1 * x3=  TotalInputMoney;
+var TotalInputMoney=parseInt(document.getElementById('TotalInputMoneyID').value);
+var MinInputMoney=parseInt(document.getElementById('MinInputMoneyID').value);
 
-var i0Win=0;
-
-
-for (let i0 = 1; i0 < TotalInputOdds; i0++) {
-	  i0Win=i0 * TotalGoal0 * 2;
-
-	var i0input=i0 * 2;
-   //console.log("InputMoney:" + InputMoney);  
-for (let i1 = 1; i1 < TotalInputOdds; i1++) {
-	var i1Win=i1 * TotalGoal1* 2;
-	var i1input=i1 * 2;
+// + 2 的原因是 遇到低倍数赔的更少，遇到高倍数赚的不变。用处不大。
+var ReduceLostOdds=0;
 
 
+var InputMoney0=parseInt(TotalInputMoney / TotalGoal0) +ReduceLostOdds ;
+var InputMoney1= parseInt(TotalInputMoney / TotalGoal1) +ReduceLostOdds;
+var InputMoney2= parseInt(TotalInputMoney / TotalGoal2) +ReduceLostOdds ;
+ 
 
-for (let i2 = 1; i2 < TotalInputOdds; i2++) {
-	var i2Win=i2 * TotalGoal2* 2;
-	var i2input=i2 * 2;
+var WinRate=0;
+if (InputMoney0 <= MinInputMoney) {
+InputMoney0=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney1 <= MinInputMoney) {
+InputMoney1=MinInputMoney;
+WinRate=WinRate +1;
+}
+if (InputMoney2 <= MinInputMoney) {
+InputMoney2=MinInputMoney;
+WinRate=WinRate +1;
+}
+ 
 
-console.log("***************" );  
-console.log("i0Win:",i0Win );  
-console.log("i1Win:",i1Win );  
-console.log("i2Win:",i2Win ); 
-console.log("***************" );  
 
-}}}
+console.log("0:",InputMoney0 );
+console.log("1:",InputMoney1 );
+console.log("2:",InputMoney2);
+ 
+
+
+var FinalInputMoney=  InputMoney0 +InputMoney1+InputMoney2 ;
+
+//3 种赔率
+var FinalWinRate=WinRate  / 3;
+console.log("FinalInputMoney:",FinalInputMoney);
+
+$("#ResultID").html( 
+"胜:"+InputMoney0+ "  " + "  Win:" + InputMoney0*TotalGoal0 + "<br>" +
+"平:"+InputMoney1+ "  " + "  Win:" + InputMoney1*TotalGoal1 +"<br>"+
+"负:"+InputMoney2+ "  "+ "  Win:" + InputMoney2*TotalGoal2 +"<br>"+
+
+"FinalInputMoney:"+FinalInputMoney+ "  "+"<br>"+
+"FinalWinRate:"+FinalWinRate+ "  "+"<br>"
+
+ ); 
+
 
 
 }
-
+ 
 
 
 
