@@ -494,59 +494,77 @@ var InputArray = [];
 
 
 if (document.getElementById('InputMoney0ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney0ID').value));
+OddsArray.push(document.getElementById('InputMoney0ID').value);
 }
 
 if (document.getElementById('InputMoney1ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney1ID').value));
+OddsArray.push(document.getElementById('InputMoney1ID').value);
 }
 
 if (document.getElementById('InputMoney2ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney2ID').value));
+OddsArray.push(document.getElementById('InputMoney2ID').value);
 }
 
 if (document.getElementById('InputMoney3ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney3ID').value));
+OddsArray.push(document.getElementById('InputMoney3ID').value);
 }
 
 if (document.getElementById('InputMoney4ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney4ID').value));
+OddsArray.push(document.getElementById('InputMoney4ID').value);
 }
 
 if (document.getElementById('InputMoney5ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney5ID').value));
+OddsArray.push(document.getElementById('InputMoney5ID').value);
 }
 
 if (document.getElementById('InputMoney6ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney6ID').value));
+OddsArray.push(document.getElementById('InputMoney6ID').value);
 }
 
 if (document.getElementById('InputMoney7ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney7ID').value));
+OddsArray.push(document.getElementById('InputMoney7ID').value);
 }
 
 if (document.getElementById('InputMoney8ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney8ID').value));
+OddsArray.push(document.getElementById('InputMoney8ID').value);
 }
 
 if (document.getElementById('InputMoney9ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney9ID').value));
+OddsArray.push(document.getElementById('InputMoney9ID').value);
 }
 
 if (document.getElementById('InputMoney10ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney10ID').value));
+OddsArray.push(document.getElementById('InputMoney10ID').value);
 }
 
 if (document.getElementById('InputMoney11ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney11ID').value));
+OddsArray.push(document.getElementById('InputMoney11ID').value);
 }
 
 if (document.getElementById('InputMoney12ID').value!="") {
-OddsArray.push(parseInt(document.getElementById('InputMoney12ID').value));
+OddsArray.push(document.getElementById('InputMoney12ID').value);
+}
+
+if (document.getElementById('InputMoney13ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney13ID').value);
+}
+
+if (document.getElementById('InputMoney14ID').value!="") {
+OddsArray.push(  document.getElementById('InputMoney14ID').value);
+}
+
+if (document.getElementById('InputMoney15ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney15ID').value);
+}
+
+if (document.getElementById('InputMoney16ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney16ID').value);
 }
 
 
- 
+ if (document.getElementById('InputMoney17ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney17ID').value);
+}
 
 
 
@@ -590,11 +608,11 @@ console.log("FinalInputMoney:", FinalInputMoney);
 	//FinalInputMoney=FinalInputMoney+InputArray[m];
 
 if (InputArray[m]* OddsArray[m]  < FinalInputMoney) {
- HTMLString+= m.toString() + ": " + InputArray[m]+ "  " + "  Win:" + InputArray[m]* OddsArray[m] + "<br>" ;
+ HTMLString+= m.toString() + ": " + InputArray[m]+ "  " + "  Win:" +parseInt(InputArray[m]* OddsArray[m])  + "<br>" ;
 
 }else
 {
-HTMLString+=m.toString() + ": " +InputArray[m]+ "  " + "  Win:" + '<font style="color:red">'+  InputArray[m]* OddsArray[m] + '</font>' + "<br>" ;
+HTMLString+=m.toString() + ": " +InputArray[m]+ "  " + "  Win:" + '<font style="color:red">'+  parseInt(InputArray[m]* OddsArray[m]) + '</font>' + "<br>" ;
 
 }
 
