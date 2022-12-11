@@ -65,6 +65,62 @@
 <input type="text"   class="form-control" id="InputMoney17ID"    placeholder=""> <br> 
 
 
+<label>Odds 18</label>
+<input type="text"   class="form-control" id="InputMoney18ID"    placeholder=""> <br> 
+
+
+<label>Odds 19</label>
+<input type="text"   class="form-control" id="InputMoney19ID"    placeholder=""> <br> 
+
+
+<label>Odds 20</label>
+<input type="text"   class="form-control" id="InputMoney20ID"    placeholder=""> <br> 
+
+
+<label>Odds 21</label>
+<input type="text"   class="form-control" id="InputMoney21ID"    placeholder=""> <br> 
+
+
+<label>Odds 22</label>
+<input type="text"   class="form-control" id="InputMoney22ID"    placeholder=""> <br> 
+
+
+<label>Odds 23</label>
+<input type="text"   class="form-control" id="InputMoney23ID"    placeholder=""> <br> 
+
+
+<label>Odds 24</label>
+<input type="text"   class="form-control" id="InputMoney24ID"    placeholder=""> <br> 
+
+
+<label>Odds 25</label>
+<input type="text"   class="form-control" id="InputMoney25ID"    placeholder=""> <br> 
+
+
+<label>Odds 26</label>
+<input type="text"   class="form-control" id="InputMoney26ID"    placeholder=""> <br> 
+
+
+<label>Odds 27</label>
+<input type="text"   class="form-control" id="InputMoney27ID"    placeholder=""> <br> 
+
+
+<label>Odds 28</label>
+<input type="text"   class="form-control" id="InputMoney28ID"    placeholder=""> <br> 
+
+
+<label>Odds 29</label>
+<input type="text"   class="form-control" id="InputMoney29ID"    placeholder=""> <br> 
+
+
+<label>Odds 30</label>
+<input type="text"   class="form-control" id="InputMoney30ID"    placeholder=""> <br> 
+
+
+<label>Odds 31</label>
+<input type="text"   class="form-control" id="InputMoney31ID"    placeholder=""> <br> 
+
+
  <br>  <br> 
 
 
@@ -351,6 +407,11 @@ var InputMoney7= parseInt(TotalInputMoney / TotalGoal7)+ReduceLostOdds ;
 
 
 var WinRate=0;
+
+var FinalWinRate=0;
+
+
+
 if (InputMoney0 <= MinInputMoney) {
 InputMoney0=MinInputMoney;
 WinRate=WinRate +1;
@@ -400,7 +461,7 @@ console.log("7:",InputMoney7);
 var FinalInputMoney=  InputMoney0 +InputMoney1+InputMoney2+InputMoney3+InputMoney4+InputMoney5+InputMoney6+InputMoney7;
 
 //8 种赔率
-var FinalWinRate=WinRate  / 8;
+  FinalWinRate=WinRate  / 8;
 console.log("FinalInputMoney:",FinalInputMoney);
 
 
@@ -481,6 +542,9 @@ function CustomOddsRun(){
 var WinRates= [1.3, 4.05, 6.6];
 var OddsArray = [];
 var InputArray = [];
+
+
+var FinalWinRate=0;
 
 //for (var i = 0; i < WinRates.length; i++) { 
 
@@ -567,6 +631,62 @@ OddsArray.push( document.getElementById('InputMoney17ID').value);
 }
 
 
+ if (document.getElementById('InputMoney18ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney18ID').value);
+}
+
+ if (document.getElementById('InputMoney19ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney19ID').value);
+}
+
+ if (document.getElementById('InputMoney20ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney20ID').value);
+}
+
+ if (document.getElementById('InputMoney21ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney21ID').value);
+}
+
+ if (document.getElementById('InputMoney22ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney22ID').value);
+}
+
+ if (document.getElementById('InputMoney23ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney23ID').value);
+}
+
+ if (document.getElementById('InputMoney24ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney24ID').value);
+}
+
+ if (document.getElementById('InputMoney25ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney25ID').value);
+}
+
+ if (document.getElementById('InputMoney26ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney26ID').value);
+}
+
+ if (document.getElementById('InputMoney27ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney27ID').value);
+}
+
+ if (document.getElementById('InputMoney28ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney28ID').value);
+}
+
+ if (document.getElementById('InputMoney29ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney29ID').value);
+}
+
+ if (document.getElementById('InputMoney30ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney30ID').value);
+}
+
+
+ if (document.getElementById('InputMoney31ID').value!="") {
+OddsArray.push( document.getElementById('InputMoney31ID').value);
+}
 
 
 var TotalInputMoney=parseInt(document.getElementById('TotalInputMoneyID').value);
@@ -580,11 +700,27 @@ for (var j = 0; j < OddsArray.length; j++) {
 	console.log(OddsArray[j]); 
 
 if (TotalInputMoney / OddsArray[j] <= MinInputMoney) {
+
+//真实情况是总投入是一直在增加的。
+// TotalInputMoney=TotalInputMoney+parseInt(MinInputMoney );
+
     InputArray.push(parseInt(MinInputMoney ));
     WinRate=WinRate +1;
+
+
+
 }else{
+
+ //	TotalInputMoney=TotalInputMoney+parseInt(TotalInputMoney / OddsArray[j]  );
 	InputArray.push(parseInt(TotalInputMoney / OddsArray[j] ) );
+
+
+
+
 }
+
+console.log("TotalInputMoney:", TotalInputMoney); 
+
 	
 }
 
@@ -624,7 +760,7 @@ HTMLString+=m.toString() + ": " +InputArray[m]+ "  " + "  Win:" + '<font style="
 
  
 //8 种赔率
-var FinalWinRate=WinRate  / OddsArray.length;
+ FinalWinRate=WinRate  / OddsArray.length;
 console.log("FinalWinRate:",FinalInputMoney);
 
 
